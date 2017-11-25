@@ -20,5 +20,9 @@
   "bugs": {
     "url": "https://github.com/swami701/leadiq-simple-api-nodejs-app/issues"
   },
-  "homepage": "https://github.com/swami701/leadiq-simple-api-nodejs-app#readme"
+  "homepage": "https://github.com/swami701/leadiq-simple-api-nodejs-app#readme",
+  "dependencies": {
+    "node-restify-validation": "^1.1.1",
+    "restify": "^6.3.4"
+  }
 }
