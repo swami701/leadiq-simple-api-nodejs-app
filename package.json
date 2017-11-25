@@ -24,5 +24,12 @@
   "dependencies": {
     "node-restify-validation": "^1.1.1",
     "restify": "^6.3.4"
+  },
+  "devDependencies": {
+    "chai": "^4.1.2",
+    "gulp": "^3.9.1",
+    "gulp-eslint": "^4.0.0",
+    "gulp-mocha": "^4.3.1",
+    "supertest": "^3.0.0"
   }
 }
