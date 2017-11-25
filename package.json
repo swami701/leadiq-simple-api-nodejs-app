@@ -1,0 +1,24 @@
+{
+  "name": "leadiq-simple-api-nodejs-app",
+  "version": "1.0.0",
+  "description": "LeadIQ simple node js API - Coding Challenge",
+  "main": "index.js",
+  "scripts": {
+    "test": "node_module/.bin/gulp test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/swami701/leadiq-simple-api-nodejs-app.git"
+  },
+  "keywords": [
+    "nodejs",
+    "api",
+    "leadiq"
+  ],
+  "author": "swami",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/swami701/leadiq-simple-api-nodejs-app/issues"
+  },
+  "homepage": "https://github.com/swami701/leadiq-simple-api-nodejs-app#readme"
+}
