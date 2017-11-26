@@ -4,7 +4,9 @@
   "description": "LeadIQ simple node js API - Coding Challenge",
   "main": "index.js",
   "scripts": {
-    "test": "node_module/.bin/gulp test"
+    "start": "node src/server.js",
+    "local": "node_modules/.bin/gulp",
+    "test": "node_modules/.bin/gulp test"
   },
   "repository": {
     "type": "git",
@@ -31,6 +33,7 @@
     "gulp": "^3.9.1",
     "gulp-eslint": "^4.0.0",
     "gulp-mocha": "^4.3.1",
+    "pm2": "^2.8.0",
     "supertest": "^3.0.0"
   }
 }
