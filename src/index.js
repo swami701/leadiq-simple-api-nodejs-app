@@ -10,6 +10,7 @@ var server = restify.createServer({
 
 // Health
 var health = require('./modules/health/health');
+var createTrans = require('./modules/transaction/create-trans')
 
 server.use(restify.plugins.acceptParser(server.acceptable));
 server.use(restify.plugins.queryParser({
@@ -33,7 +34,11 @@ server.use(restifyValidation.validationPlugin({
 }));
 
 // Endpoints
-server.get('/health', health);
+server.get('/health', health)
+server.put({
+  path: '/transactionservice/transaction/:id',
+  validation: createTrans.validation
+}, createTrans.createTrans)
 
 var port = process.env.PORT || 3000;
 server.listen(port, () => {
