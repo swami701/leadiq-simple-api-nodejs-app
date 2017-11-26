@@ -1,4 +1,3 @@
-var assert = require('chai').assert;
 var supertest = require('supertest');
 var port = process.env.PORT || 3000
 var url = `http://localhost:${port}`;
