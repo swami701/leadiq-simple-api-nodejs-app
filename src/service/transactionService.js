@@ -19,7 +19,17 @@ let getTransactionByType = (type) => {
   return storageService.getTransactionByType(type)
 }
 
+/**
+* This function returns the transaction sum for given id and its sub transaction ids
+* @param number: Transaction id
+* @returns number: Transaction Sum
+*/
+let getTransactionSum = (id) => {
+  return storageService.getTransactionSum(id)
+}
+
 module.exports = {
   createTransaction,
-  getTransactionByType
+  getTransactionByType,
+  getTransactionSum
 }

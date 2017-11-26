@@ -12,6 +12,7 @@ var server = restify.createServer({
 var health = require('./modules/health/health');
 var createTrans = require('./modules/transaction/create-trans')
 var getTransByType = require('./modules/transaction/get-trans-by-type')
+var getTransSum = require('./modules/transaction/get-trans-sum')
 
 server.use(restify.plugins.acceptParser(server.acceptable));
 server.use(restify.plugins.queryParser({
@@ -46,6 +47,11 @@ server.get({
   path: '/transactionservice/types/:type',
   validation: getTransByType.validation
 }, getTransByType.getTrans)
+
+server.get({
+  path: '/transactionservice/sum/:id',
+  validation: getTransSum.validation
+}, getTransSum.getTransSum)
 
 var port = process.env.PORT || 3000;
 server.listen(port, () => {

@@ -27,9 +27,9 @@ let storeTransaction = (transObj) => {
     }
     let isExist = subTrans.some(item => item === transObj.id);
     if (!isExist) {
-      subTrans.push(transObj.id);
+      subTrans.push(transObj.id)
     }
-    transIdToSubTrans[transObj.parent_id] = transObj.id;
+    transIdToSubTrans[transObj.parent_id] = subTrans
   }
 }
 
@@ -42,7 +42,30 @@ let getTransactionByType = (type) => {
   return transByType[type]
 }
 
+/**
+* This function returns the transaction sum for given id and its sub transaction ids
+* @param number: Transaction id
+* @returns number: Transaction Sum
+*/
+let getTransactionSum = (id) => {
+  let sum = 0;
+  if (transIdToSubTrans[id]) {
+    for (var i = 0; i < transIdToSubTrans[id].length; i++) {
+      let transId = transIdToSubTrans[id][i]
+      sum += transById[transId].amount
+    }
+  }
+
+  if (transById[id]) {
+    sum += transById[id].amount
+    return sum
+  } else {
+    return undefined
+  }
+}
+
 module.exports = {
   storeTransaction,
-  getTransactionByType
+  getTransactionByType,
+  getTransactionSum
 }
