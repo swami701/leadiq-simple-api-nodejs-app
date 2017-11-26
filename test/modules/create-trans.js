@@ -9,7 +9,7 @@ describe('Create Transaction', function () {
       .set('Accept', 'application/json')
       .send(
       {
-        "type": "car",
+        "type": "cars",
         "amount": 100
       })
       .expect(200, done);

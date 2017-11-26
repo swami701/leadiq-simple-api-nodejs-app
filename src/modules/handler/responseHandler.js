@@ -5,7 +5,7 @@ function setContentLength(res, length) {
   }
 }
 
-let resp =  (req, res, body) => {
+let resp = (req, res, body) => {
   if (!body) {
     setContentLength(res, 0);
     return null;
@@ -25,18 +25,11 @@ let resp =  (req, res, body) => {
   if (Buffer.isBuffer(body))
     body = body.toString('base64');
 
-  var data;
-  if (res.statusCode >= 200 && res.statusCode < 300) {
-    data = JSON.stringify({
-      "status": "ok"
-    })
-  } else {
-    data = JSON.stringify({
-      status: res.statusCode,
-      message: 'Fail',
-      result: body
-    });
-  }
+  var data = JSON.stringify({
+    status: res.statusCode,
+    message: (res.statusCode >= 200 && res.statusCode < 300) ? 'Success' : 'Fail',
+    result: body
+  });
 
   setContentLength(res, Buffer.byteLength(data));
 

@@ -10,6 +10,16 @@ let createTransaction = (transObj) => {
   storageService.storeTransaction(transObj)
 }
 
+/**
+* This function returns the transaction based on its type
+* @param string: Transaction type
+* @returns object: Transaction Object
+*/
+let getTransactionByType = (type) => {
+  return storageService.getTransactionByType(type)
+}
+
 module.exports = {
-  createTransaction
+  createTransaction,
+  getTransactionByType
 }

@@ -1,3 +1,5 @@
+var transactionService = require('../../service/transactionService')
+
 var create = (req, res) => {
   let transObj = {}
   transObj.id = req.params.id
@@ -6,7 +8,8 @@ var create = (req, res) => {
   if (req.params.parent_id) {
     transObj.parent_id = req.params.parent_id
   }
-  res.send(200, "Success")
+  transactionService.createTransaction(transObj)
+  res.send(200, "ok")
 };
 
 let createTrans = {
