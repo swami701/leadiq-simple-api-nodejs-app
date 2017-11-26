@@ -39,7 +39,16 @@ let storeTransaction = (transObj) => {
 * @returns object: Transaction Object
 */
 let getTransactionByType = (type) => {
-  return transByType[type]
+  let ids = []
+  if (transByType[type]) {
+    for (var i = 0; i < transByType[type].length; i++) {
+      let transObj = transByType[type][i];
+      ids.push(transObj.id)
+    }
+    return ids
+  } else {
+    return undefined
+  }
 }
 
 /**

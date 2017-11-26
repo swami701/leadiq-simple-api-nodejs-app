@@ -20,11 +20,6 @@ describe('Get Transaction By Type', function () {
       .end((err, res) => {
         assert.property(res.body, "result")
         assert.isArray(res.body.result)
-        assert.isNumber(res.body.result[0].amount)
-        assert.property(res.body.result[0], "id")
-        assert.property(res.body.result[0], "type")
-        assert.isString(res.body.result[0].type)
-        assert.equal(res.body.result[0].type, "bus")
         done()
       })
   });
