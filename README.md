@@ -100,3 +100,16 @@ restify listening at http://[::]:5000
 ### Linter
 The Lint check be performed by below command
 `$ npm run lint`
+
+
+### Additional Info
+The response format I used is like the below
+```
+{
+    "status": <statuscode>,
+    "message": "Success" || "Fail",
+    "result":  <corresponding output>
+}
+```
+
+I chose this kind of response format because it can be consumed efficiently by mobile application because better decisions can be made based on the **status** and **message** attribute 
