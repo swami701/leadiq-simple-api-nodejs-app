@@ -4,7 +4,7 @@
   "description": "LeadIQ simple node js API - Coding Challenge",
   "main": "index.js",
   "scripts": {
-    "start": "node src/server.js",
+    "start": "node src/index.js",
     "local": "node_modules/.bin/gulp",
     "test": "node_modules/.bin/gulp test"
   },
