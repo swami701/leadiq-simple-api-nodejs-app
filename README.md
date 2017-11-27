@@ -96,3 +96,7 @@ restify listening at http://[::]:5000
 
 [18:02:32] Finished 'test' after 565 ms
 ```
+
+### Linter
+The Lint check be performed by below command
+`$ npm run lint`
