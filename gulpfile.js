@@ -14,7 +14,8 @@ gulp.task('test', () => {
 });
 
 gulp.task('lint', () => {
-  return gulp.src(['**/*.js', '!node_modules/**/*.js', '!tests/**/*.js'])
+  return gulp.src(
+    ['**/*.js', '!node_modules/**/*.js', '!test/**/*.js'])
     .pipe(eslint({
       configFile: '.eslintrc',
       fix: true

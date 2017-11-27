@@ -9,10 +9,10 @@ var server = restify.createServer({
 });
 
 // Health
-var health = require('./modules/health/health');
-var createTrans = require('./modules/transaction/create-trans')
-var getTransByType = require('./modules/transaction/get-trans-by-type')
-var getTransSum = require('./modules/transaction/get-trans-sum')
+let health = require('./modules/health/health');
+let createTrans = require('./modules/transaction/create-trans')
+let getTransByType = require('./modules/transaction/get-trans-by-type')
+let getTransSum = require('./modules/transaction/get-trans-sum')
 
 server.use(restify.plugins.acceptParser(server.acceptable));
 server.use(restify.plugins.queryParser({
@@ -53,7 +53,7 @@ server.get({
   validation: getTransSum.validation
 }, getTransSum.getTransSum)
 
-var port = process.env.PORT || 3000;
+let port = process.env.PORT || 3000;
 server.listen(port, () => {
   console.log('%s listening at %s', server.name, server.url);
 });

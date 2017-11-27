@@ -1,11 +1,13 @@
+/* eslint max-statements: ["error", 19] */
+
 let transById = {}
 let transByType = {}
 let transIdToSubTrans = {}
 
 /**
  * This function stores the transaction in memory
- * @param object: Trans obj
- * @returns void
+ * @param {object} transObj Trans obj
+ * @returns {void}
  */
 let storeTransaction = (transObj) => {
   transById[transObj.id] = transObj
@@ -14,8 +16,8 @@ let storeTransaction = (transObj) => {
   if (transByType[transObj.type]) {
     transObjs = transByType[transObj.type]
   }
-  let isExist = transObjs.some(item => item.id === transObj.id);
-  if (!isExist) {
+  let isExist1 = transObjs.some(item => item.id === transObj.id);
+  if (!isExist1) {
     transObjs.push(transObj);
   }
   transByType[transObj.type] = transObjs;
@@ -25,8 +27,8 @@ let storeTransaction = (transObj) => {
     if (transIdToSubTrans[transObj.parent_id]) {
       subTrans = transIdToSubTrans[transObj.parent_id];
     }
-    let isExist = subTrans.some(item => item === transObj.id);
-    if (!isExist) {
+    let isExist2 = subTrans.some(item => item === transObj.id);
+    if (!isExist2) {
       subTrans.push(transObj.id)
     }
     transIdToSubTrans[transObj.parent_id] = subTrans
@@ -35,14 +37,14 @@ let storeTransaction = (transObj) => {
 
 /**
 * This function returns the transaction based on its type
-* @param string: Transaction type
-* @returns object: Transaction Object
+* @param {string} type Transaction type
+* @returns {object} Transaction Object
 */
 let getTransactionByType = (type) => {
   let ids = []
   if (transByType[type]) {
-    for (var i = 0; i < transByType[type].length; i++) {
-      let transObj = transByType[type][i];
+    for (let iVar = 0; iVar < transByType[type].length; iVar++) {
+      let transObj = transByType[type][iVar];
       ids.push(transObj.id)
     }
     return ids
@@ -52,15 +54,16 @@ let getTransactionByType = (type) => {
 }
 
 /**
-* This function returns the transaction sum for given id and its sub transaction ids
-* @param number: Transaction id
-* @returns number: Transaction Sum
+* This function returns the transaction sum for given id and 
+* its sub transaction ids
+* @param {number} id Transaction id
+* @returns {number} Transaction Sum
 */
 let getTransactionSum = (id) => {
   let sum = 0;
   if (transIdToSubTrans[id]) {
-    for (var i = 0; i < transIdToSubTrans[id].length; i++) {
-      let transId = transIdToSubTrans[id][i]
+    for (let iVar = 0; iVar < transIdToSubTrans[id].length; iVar++) {
+      let transId = transIdToSubTrans[id][iVar]
       sum += transById[transId].amount
     }
   }

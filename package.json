@@ -6,7 +6,8 @@
   "scripts": {
     "start": "node src/index.js",
     "local": "node_modules/.bin/gulp",
-    "test": "node_modules/.bin/gulp test"
+    "test": "node_modules/.bin/gulp test",
+    "lint": "node_modules/.bin/gulp lint"
   },
   "repository": {
     "type": "git",

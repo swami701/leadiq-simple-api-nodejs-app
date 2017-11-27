@@ -1,4 +1,10 @@
-function setContentLength(res, length) {
+/**
+ * This sets the response content length
+ * @param {object} res Response object
+ * @param {number} length Length to be set for response
+ * @returns {void}
+ */
+let setContentLength = (res, length) => {
   if (res.getHeader('Content-Length') === undefined &&
     res.contentLength === undefined) {
     res.setHeader('Content-Length', length);
@@ -25,9 +31,10 @@ let resp = (req, res, body) => {
   if (Buffer.isBuffer(body))
     body = body.toString('base64');
 
-  var data = JSON.stringify({
+  let data = JSON.stringify({
     status: res.statusCode,
-    message: (res.statusCode >= 200 && res.statusCode < 300) ? 'Success' : 'Fail',
+    message:
+      (res.statusCode >= 200 && res.statusCode < 300) ? 'Success' : 'Fail',
     result: body
   });
 
