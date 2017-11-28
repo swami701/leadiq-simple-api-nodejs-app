@@ -29,7 +29,7 @@ gulp.task('start', function (cb) {
     pm2.start({
       "script": "src/index.js",
       "node_args": "-r dotenv/config",
-      "watch": true,
+      "watch": false,
       "ignore_watch": ['test'],
       "restart_delay": 5000
     }, function () {
